@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-
 if __name__ == "__main__":
-
-    from sys import argv
-
-    x = len(argv) - 1
-    y = "argument"
-
-    print('{} {}'.format(x, y+":")) \
-        if x == 1 else print('{} {}'.format(x, y+'s.')) \
-        if x == 0 else print('{} {}'.format(x, y+'s:'))
-    [print('{}: {}'.format(z, argv[z])) for z in range(1, x + 1)]
+    import sys
+    size = len(sys.argv)
+    if (size - 1 == 1):
+        print("{:d} argument".format(size - 1), end='')
+    else:
+        print("{:d} arguments".format(size - 1), end='')
+    if (size - 1 == 0):
+        print('.')
+    else:
+        print(':')
+    for i in range(1, size):
+        print("{}: {}".format(i, sys.argv[i]))
